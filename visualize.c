@@ -87,7 +87,7 @@ int main() {
 
     /* FFT spectrum: top 2% clipped — DC spike would otherwise dominate */
     normalize_percentile(fft_mag,  fft_px,  n, 0.02f);
-    /* Edge output: top 5% clipped — makes edges bright, suppresses noise */
+    /* Edge output: top 2% clipped — makes edges bright, suppresses noise */
     normalize_percentile(edge_mag, edge_px, n, 0.02f);
 
     stbi_write_png("fft_output.png",   width, height, 1, fft_px,  width);

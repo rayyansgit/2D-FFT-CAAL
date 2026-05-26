@@ -1,6 +1,6 @@
 # fft_2d.s — Milestone 4
 # 2D Vectorized FFT in RISC-V Assembly
-# M3 vector functions used verbatim, extended with 2D pipeline + IFFT
+# M3 vector functions used, extended with 2D pipeline + IFFT
 #
 # Build:
 #   riscv64-linux-gnu-gcc -march=rv64gcv -o fft_2d fft_2d.s -lm -static
@@ -166,7 +166,7 @@ log2_int:
         ret
 
 # ------------------------------------------------------------
-# vec_generate_twiddle_factors — verbatim from M3
+# vec_generate_twiddle_factors — from M3
 # Forward: W[k] = e^{-j2πk/N}
 # in: a0=real*, a1=imag*, a2=n
 # ------------------------------------------------------------
@@ -241,7 +241,7 @@ negate_array:
         ret
 
 # ------------------------------------------------------------
-# vec_bit_reverse_array — verbatim from M3
+# vec_bit_reverse_array — from M3
 # in: a0=xr*, a1=xi*, a2=n
 # ------------------------------------------------------------
 vec_bit_reverse_array:
@@ -287,7 +287,7 @@ vec_bit_reverse_array:
         addi    sp, sp, 64; ret
 
 # ------------------------------------------------------------
-# vec_butterfly_iterative — verbatim from M3
+# vec_butterfly_iterative — from M3
 # in: a0=xr*, a1=xi*, a2=tw_r*, a3=tw_i*, a4=n
 # ------------------------------------------------------------
 vec_butterfly_iterative:
@@ -339,7 +339,7 @@ vec_butterfly_iterative:
         addi    sp, sp, 96; ret
 
 # ------------------------------------------------------------
-# fft_1d_vec — verbatim from M3
+# fft_1d_vec — from M3
 # in: a0=xr*, a1=xi*, a2=tw_r*, a3=tw_i*, a4=n
 # ------------------------------------------------------------
 fft_1d_vec:
